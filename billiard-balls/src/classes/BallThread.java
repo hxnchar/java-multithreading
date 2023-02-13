@@ -5,7 +5,19 @@ public class BallThread extends Thread {
 
     public BallThread(Ball ball){
         b = ball;
+        setPriority(5);
     }
+
+    public BallThread(Ball ball, int priority){
+        b = ball;
+
+        int fixedPriority = priority >= 1 && priority <= 10 ? priority
+            : priority < 1 ? 1 : 10;
+
+        setPriority(fixedPriority);
+        ball.setPriority(fixedPriority);
+    }
+
     @Override
     public void run(){
         try{
@@ -13,21 +25,17 @@ public class BallThread extends Thread {
                 b.move();
 
                 if (b.isInPocket()) {
-                    Thread.currentThread().interrupt();
                     b.removeFromCanvas();
-                    BounceFrame.canvas.repaint();
                     BounceFrame.incrementBallsInPockets();
+                    Thread.currentThread().interrupt();
                 }
 
                 System.out.println("Thread name = "
                         + Thread.currentThread().getName());
                 Thread.sleep(5);
-                if(Thread.interrupted()) {
-                    return;
-                }
             }
         } catch(InterruptedException ex){
-
+            System.out.println("Error: " + ex.getMessage());
         }
     }
 }

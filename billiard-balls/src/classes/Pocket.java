@@ -41,9 +41,9 @@ public class Pocket {
         pockets.add(new Pocket(width/2 - halfPocketWidth, 0 - halfPocketHeight));
         pockets.add(new Pocket(width - halfPocketWidth, 0 - halfPocketHeight));
 
-        pockets.add(new Pocket(0 - halfPocketWidth, height - 65 - halfPocketHeight));
-        pockets.add(new Pocket(width/2 - halfPocketWidth, height - 65 - halfPocketHeight));
-        pockets.add(new Pocket(width - halfPocketWidth, height - 65 - halfPocketHeight));
+        pockets.add(new Pocket(0 - halfPocketWidth, height - BounceFrame.MENU_HEIGHT - halfPocketHeight - Pocket.height));
+        pockets.add(new Pocket(width/2 - halfPocketWidth, height - BounceFrame.MENU_HEIGHT - halfPocketHeight - Pocket.height));
+        pockets.add(new Pocket(width - halfPocketWidth, height - BounceFrame.MENU_HEIGHT - halfPocketHeight - Pocket.height));
 
         return pockets;
     }

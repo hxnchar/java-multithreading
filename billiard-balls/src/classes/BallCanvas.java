@@ -31,7 +31,10 @@ public class BallCanvas extends JPanel {
 
         for(int i=0; i<balls.size();i++){
             Ball b = balls.get(i);
-            b.draw(g2);
+            if(b != null) {
+                b.draw(g2);
+            }
+
         }
     }
 }

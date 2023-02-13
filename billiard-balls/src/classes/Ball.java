@@ -7,6 +7,7 @@ import java.util.Random;
 
 class Ball {
     public Component canvas;
+    public int priority = 5;
     private static final int XSIZE = 20;
     private static final int YSIZE = 20;
     private int x = 0;
@@ -14,6 +15,9 @@ class Ball {
     private int dx = 2;
     private int dy = 2;
 
+    void setPriority(int priority) {
+        this.priority = priority;
+    }
 
     public Ball(Component c){
         this.canvas = c;
@@ -27,13 +31,34 @@ class Ball {
         }
     }
 
+    public Ball(Component c, int x, int y){
+        this.canvas = c;
+        this.x = x;
+        this.y = y;
+    }
+
     public void draw (Graphics2D g2){
-        g2.setColor(Color.white);
+        Color color;
+
+        switch (this.priority) {
+            case 1:
+                color = Color.decode("#0085b5");
+                break;
+            case 10:
+                color = Color.decode("#b50202");
+                break;
+            default:
+                color = Color.decode("#ebebeb");
+                break;
+        }
+
+        g2.setColor(color);
         g2.fill(new Ellipse2D.Double(x,y,XSIZE,YSIZE));
     }
 
     public void removeFromCanvas() {
         BallCanvas.balls.remove(this);
+        BounceFrame.canvas.repaint();
     }
 
     public boolean isInPocket() {
