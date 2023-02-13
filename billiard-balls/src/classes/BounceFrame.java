@@ -7,9 +7,17 @@ import java.awt.event.ActionListener;
 
 public class BounceFrame extends JFrame {
 
-    private BallCanvas canvas;
+    public static BallCanvas canvas;
     public static final int WIDTH = 450;
     public static final int HEIGHT = 350;
+    private static int ballsInPockets = 0;
+    private static JLabel ballsInPocketLabel;
+
+    public static void incrementBallsInPockets() {
+        BounceFrame.ballsInPockets += 1;
+        ballsInPocketLabel.setText("Balls in pockets: " + ballsInPockets);
+    }
+
 
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
@@ -26,6 +34,7 @@ public class BounceFrame extends JFrame {
 
         JButton buttonStart = new JButton("Start");
         JButton buttonStop = new JButton("Stop");
+        ballsInPocketLabel = new JLabel("Balls in pockets: " + BounceFrame.ballsInPockets);
 
         buttonStart.addActionListener(new ActionListener() {
             @Override
@@ -49,9 +58,9 @@ public class BounceFrame extends JFrame {
 
         });
 
-
         buttonPanel.add(buttonStart);
         buttonPanel.add(buttonStop);
+        buttonPanel.add(ballsInPocketLabel);
 
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
