@@ -20,7 +20,7 @@ public class BounceFrame extends JFrame {
 
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
-        this.setTitle("Bounce programm");
+        this.setTitle("Bounce program");
 
         this.canvas = new BallCanvas(WIDTH, HEIGHT);
         System.out.println("In Frame Thread name = "
@@ -31,7 +31,7 @@ public class BounceFrame extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.lightGray);
 
-        JButton buttonStart = new JButton("Start");
+        JButton buttonStart = new JButton("Add 1 default ball");
         JButton buttonStop = new JButton("Stop");
         ballsInPocketLabel = new JLabel("Balls in pockets: " + BounceFrame.ballsInPockets);
 
