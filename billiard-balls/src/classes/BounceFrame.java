@@ -15,7 +15,7 @@ public class BounceFrame extends JFrame {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");
 
-        this.canvas = new BallCanvas();
+        this.canvas = new BallCanvas(WIDTH, HEIGHT);
         System.out.println("In Frame Thread name = "
                 + Thread.currentThread().getName());
         Container content = this.getContentPane();

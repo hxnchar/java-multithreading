@@ -17,7 +17,6 @@ class Ball {
     public Ball(Component c){
         this.canvas = c;
 
-
         if(Math.random()<0.5){
             x = new Random().nextInt(this.canvas.getWidth());
             y = 0;
@@ -25,10 +24,6 @@ class Ball {
             x = 0;
             y = new Random().nextInt(this.canvas.getHeight());
         }
-    }
-
-    public static void f(){
-        int a = 0;
     }
 
     public void draw (Graphics2D g2){
