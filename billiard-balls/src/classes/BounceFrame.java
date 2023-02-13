@@ -18,7 +18,6 @@ public class BounceFrame extends JFrame {
         ballsInPocketLabel.setText("Balls in pockets: " + ballsInPockets);
     }
 
-
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");

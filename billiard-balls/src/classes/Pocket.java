@@ -5,7 +5,7 @@ import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
 public class Pocket {
-    static Color color = Color.gray;
+    static Color color = Color.darkGray;
     private final int x;
     private final int y;
     private static final int width = 30;

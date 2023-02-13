@@ -3,7 +3,6 @@ package classes;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class BallCanvas extends JPanel {
     public static ArrayList<Ball> balls = new ArrayList<>();
@@ -22,6 +21,9 @@ public class BallCanvas extends JPanel {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.decode("#006e25"));
+        g2.fill(new Rectangle(0,0,BounceFrame.WIDTH,BounceFrame.HEIGHT));
 
         var pockets = Pocket.generateList(this.width, this.height);
         BallCanvas.pockets = pockets;
